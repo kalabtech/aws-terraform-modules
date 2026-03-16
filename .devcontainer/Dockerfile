@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install base tools, AWS CLI, and Terraform
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     unzip \
     gnupg \
@@ -27,3 +27,6 @@ RUN git clone --depth=1 https://github.com/tfutils/tfenv.git /home/vscode/.tfenv
 
 # Restore interactive mode
 ENV DEBIAN_FRONTEND=dialog
+
+# Run as non-root user
+USER vscode

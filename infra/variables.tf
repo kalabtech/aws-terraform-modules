@@ -9,14 +9,6 @@ variable "project_name" {
   default = "AWS-Terraform-Modules"
 }
 
-variable "env" {
-  type = string
-  validation {
-    condition     = contains(["dev", "staging", "prod"], var.env)
-    error_message = "Environment must be dev, staging or prod."
-  }
-}
-
 variable "aws_region" {
   description = "AWS Region for provider"
   type        = string

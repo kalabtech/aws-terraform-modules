@@ -6,7 +6,7 @@ variable "aws_profile" {
 
 variable "project_name" {
   type = string
-  # default = "Your-Project-Name"
+  default = "AWS-Terraform-Modules"
 }
 
 variable "env" {
@@ -20,5 +20,5 @@ variable "env" {
 variable "aws_region" {
   description = "AWS Region for provider"
   type        = string
-  # default     = "Your-AWS-Region"
+  default     = "eu-west-1"
 }

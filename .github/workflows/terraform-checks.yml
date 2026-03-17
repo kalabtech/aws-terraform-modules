@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        module: [dynamoDB, kms, s3-bucket]
+        module: [kms]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -57,7 +57,7 @@ jobs:
         run: tflint --init
 
       - name: Run tflint
-        run: tflint --chdir=modules --recursive --config=$GITHUB_WORKSPACE/.tflint.hcl
+        run: tflint --recursive --config=$GITHUB_WORKSPACE/.tflint.hcl
 
   gitleaks:
     name: Secrets

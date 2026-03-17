@@ -1,7 +1,7 @@
 # README
 # aws-terraform-modules
 
-![CI](https://github.com/kalabtech/aws-terraform-modules/actions/workflows/terraform-checks.yml/badge.svg)
+![CI](https://github.com/kalabtech/aws-terraform-modules/actions/workflows/terraform-checks.yml/badge.svg?branch=main)
 ![Release](https://github.com/kalabtech/aws-terraform-modules/actions/workflows/release.yml/badge.svg)
 ![License](https://img.shields.io/github/license/kalabtech/aws-terraform-modules)
 ![Latest Tag](https://img.shields.io/github/v/tag/kalabtech/aws-terraform-modules?sort=semver)

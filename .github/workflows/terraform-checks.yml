@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        module: [kms, s3-bucket]
+        module: [kms, s3]
     steps:
       - name: Checkout
         uses: actions/checkout@v4

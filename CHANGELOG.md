@@ -16,3 +16,14 @@ Each module is versioned independently using namespaced tags (e.g. `kms/v1.0.0`)
 - `prevent_destroy` hardcoded to `true`
 - Variables: `alias`, `description`, `deletion_window_days`, `enable_key_rotation`, `tags`
 - Outputs: `key_id`, `key_arn`, `alias_arn`, `alias_name`
+
+## [s3/v1.0.0] - 2026-03-17
+
+### Added
+- S3 bucket with versioning enabled
+- KMS encryption support, defaults to AES256 if no key is provided
+- Public access fully blocked
+- TLS enforced via bucket policy
+- Lifecycle policy for old version expiration
+- Variables: `bucket_name`, `kms_key_arn`, `noncurrent_version_expiration_days`, `tags`
+- Outputs: `bucket_id`, `bucket_arn`, `bucket_name`

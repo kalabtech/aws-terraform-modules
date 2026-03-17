@@ -13,6 +13,7 @@ Reusable AWS Terraform modules versioned with semantic versioning.
 | Module | Description | Latest Version |
 |--------|-------------|----------------|
 | [kms](./modules/kms) | KMS key with alias, automatic rotation and root access policy | `kms/v1.0.0` |
+| [s3](./modules/s3) | S3 bucket with versioning, KMS encryption, public access block and TLS enforcement | `s3/v1.0.0` |
 
 ## Usage
 ```hcl

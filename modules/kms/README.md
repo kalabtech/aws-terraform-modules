@@ -37,5 +37,5 @@ module "kms" {
 
 ## Notes
 
-- `prevent_destroy` is hardcoded to `true` — destroying this key makes encrypted data inaccessible.
+- `prevent_destroy` is hardcoded to `true` - destroying this key makes encrypted data inaccessible.
 - Key rotation is enabled by default (security best practices).

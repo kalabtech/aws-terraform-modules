@@ -1,9 +1,8 @@
-# .github/workflows/terraform-checks.yml
 name: Terraform Checks
 
 on:
   pull_request:
-    branches: [dev, main]
+    branches: main
 
 permissions:
   id-token: write
@@ -11,20 +10,25 @@ permissions:
 
 jobs:
   validate:
-      name: Validate
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
+    name: Validate
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        module: [kms]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-        - name: Setup Terraform
-          uses: hashicorp/setup-terraform@v3
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
 
-        - name: Terraform Init
-          run: terraform -chdir=infra init -backend=false
+      - name: Terraform Init
+        run: terraform init -backend=false
+        working-directory: modules/${{ matrix.module }}
 
-        - name: Terraform Validate
-          run: terraform -chdir=infra validate
+      - name: Terraform Validate
+        run: terraform validate
+        working-directory: modules/${{ matrix.module }}
 
   fmt:
     name: Format
@@ -36,9 +40,8 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform Format
-        working-directory: infra
-        run: terraform fmt -recursive
+      - name: Terraform Format Check
+        run: terraform fmt -recursive -check
 
   tflint:
     name: Lint
@@ -54,23 +57,21 @@ jobs:
         run: tflint --init
 
       - name: Run tflint
-        run: |
-          tflint --chdir=infra --config=$GITHUB_WORKSPACE/.tflint.hcl
-          tflint --chdir=modules --recursive --config=$GITHUB_WORKSPACE/.tflint.hcl
+        run: tflint --recursive --config=$GITHUB_WORKSPACE/.tflint.hcl
 
   gitleaks:
-      name: Secrets
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-          with:
-            fetch-depth: 0
+    name: Secrets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-        - name: gitleaks
-          uses: gitleaks/gitleaks-action@v2
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   scan:
     name: Security Scan
@@ -83,7 +84,7 @@ jobs:
         uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
         with:
           scan-type: 'config'
-          scan-ref: 'infra'
+          scan-ref: '.'
           severity: 'MEDIUM,HIGH,CRITICAL'
           exit-code: '1'
           format: 'table'

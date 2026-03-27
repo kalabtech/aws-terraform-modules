@@ -1,6 +1,14 @@
 {
-  "release-type": "simple",
   "packages": {
-    ".": {}
+    "modules/s3": {
+      "component": "s3",
+      "tag-component": "s3",
+      "release-type": "simple"
+    },
+    "modules/kms": {
+      "component": "kms",
+      "tag-component": "kms",
+      "release-type": "simple"
+    }
   }
 }

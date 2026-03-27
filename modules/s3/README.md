@@ -5,7 +5,7 @@ S3 bucket with versioning, KMS encryption, public access block, TLS enforcement 
 ## Usage
 ```hcl
 module "s3" {
-  source = "github.com/tzunxian/aws-terraform-modules//modules/s3?ref=s3/v1.0.0"
+  source = "github.com/kalabtech/aws-terraform-modules//modules/s3?ref=s3/v1.0.0"
 
   bucket_name = "my-bucket"
   kms_key_arn = module.kms.key_arn

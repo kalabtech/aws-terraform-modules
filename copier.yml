@@ -1,0 +1,15 @@
+_min_copier_version: "9.0"
+_templates_suffix: ".jinja"
+github_username:
+  type: str
+  help: "GitHub username for CODEOWNERS, docker container, script labels and License"
+
+_exclude:
+  - version.txt
+  - CHANGELOG.md
+  - .copier-answers.yml.example
+  - .git
+  - prod.hcl
+  - docs
+  - .terraform.lock.hcl
+  - .git

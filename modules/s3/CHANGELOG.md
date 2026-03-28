@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.0](https://github.com/kalabtech/aws-terraform-modules/compare/s3-v1.1.0...s3-v1.2.0) (2026-03-28)
+
+
+### Features
+
+* **s3:** add enable versioning and optional versioning expiration ([1cbf9d8](https://github.com/kalabtech/aws-terraform-modules/commit/1cbf9d84ed0e2c87b26d06ef1082489bbdcc3c90))
+* **s3:** add optional enable_versioning ([adcd7d5](https://github.com/kalabtech/aws-terraform-modules/commit/adcd7d519980991f61ef94b48d10d55f95631509))
+* **s3:** add optional versioning expiration ([4a9eb0b](https://github.com/kalabtech/aws-terraform-modules/commit/4a9eb0ba7903481fbf9b7cecc37ef4ccceb6f40c))
+
 ## [1.1.0](https://github.com/kalabtech/aws-terraform-modules/compare/s3/v1.0.0...s3-v1.1.0) (2026-03-27)
 
 

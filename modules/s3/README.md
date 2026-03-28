@@ -23,7 +23,8 @@ module "s3" {
 |------|-------------|------|---------|----------|
 | bucket_name | S3 bucket name | `string` | - | yes |
 | kms_key_arn | KMS key ARN for bucket encryption. If not provided, AES256 is used | `string` | `null` | no |
-| noncurrent_version_expiration_days | Number of days to keep old object versions | `number` | `90` | no |
+| enable_versioning | Enable bucket versioning. | `bool` | `true` | no |
+| noncurrent_version_expiration_days | Number of days to keep old object versions. | `number` | `0'` | no |
 | tags | Tags to apply to all resources | `map(string)` | `{}` | no |
 
 ## Outputs
@@ -37,7 +38,7 @@ module "s3" {
 ## Notes
 
 - `prevent_destroy` is hardcoded to `true` - bucket cannot be accidentally deleted.
-- Versioning is always enabled and cannot be disabled.
-- Public access is fully blocked.
-- HTTP requests are denied via bucket policy.
+- Versioning is enabled by default ensuring best practices but it can be disabled.
+- Public access is fully blocked ensuring best practices.
+- HTTP requests are denied via bucket policy ensuring best practices.
 - If `kms_key_arn` is not provided, AES256 encryption is used.

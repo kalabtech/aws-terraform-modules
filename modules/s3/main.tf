@@ -29,6 +29,7 @@ resource "aws_s3_bucket_public_access_block" "this" {
 }
 
 resource "aws_s3_bucket_versioning" "this" {
+  count  = var.enable_versioning == true ? 1 : 0
   bucket = aws_s3_bucket.this.id
   versioning_configuration {
     status = "Enabled"
@@ -47,6 +48,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
 }
 
 resource "aws_s3_bucket_lifecycle_configuration" "this" {
+  count  = var.enable_versioning && var.noncurrent_version_expiration_days > 0 ? 1 : 0
   bucket = aws_s3_bucket.this.id
 
   rule {

@@ -18,10 +18,10 @@ variable "kms_key_arn" {
 variable "noncurrent_version_expiration_days" {
   description = "Number of days noncurrent object versions"
   type        = number
-  default     = 90
+  default     = 0
   validation {
-    condition     = var.noncurrent_version_expiration_days > 0
-    error_message = "Must be more than 0."
+    condition     = var.noncurrent_version_expiration_days >= 0
+    error_message = "Value must be 0 (disabled) or a positive number of days."
   }
 }
 

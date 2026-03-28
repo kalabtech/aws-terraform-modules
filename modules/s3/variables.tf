@@ -1,3 +1,9 @@
+variable "tags" {
+  description = "Tags to apply to all resources"
+  type        = map(string)
+  default     = {}
+}
+
 variable "bucket_name" {
   description = "S3 bucket name"
   type        = string
@@ -19,8 +25,8 @@ variable "noncurrent_version_expiration_days" {
   }
 }
 
-variable "tags" {
-  description = "Tags to apply to all resources"
-  type        = map(string)
-  default     = {}
+variable "enable_versioning" {
+  description = "Enable versioning bucket"
+  type        = bool
+  default     = true
 }

@@ -8,7 +8,6 @@ module "s3" {
   source = "github.com/kalabtech/aws-terraform-modules//modules/s3?ref=s3/v1.0.0"
 
   bucket_name = "my-bucket"
-  kms_key_arn = module.kms.key_arn
 
   tags = {
     Project     = "my-app"
@@ -31,9 +30,7 @@ module "s3" {
 
 | Name | Description |
 |------|-------------|
-| bucket_id | S3 bucket ID |
-| bucket_arn | S3 bucket ARN |
-| bucket_name | S3 bucket name |
+| bucket | S3 bucket object |
 
 ## Notes
 

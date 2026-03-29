@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/kalabtech/aws-terraform-modules/compare/s3-v1.2.0...s3-v1.3.0) (2026-03-29)
+
+
+### Features
+
+* **s3:** add bucket object output ([48738bc](https://github.com/kalabtech/aws-terraform-modules/commit/48738bcd46b3206ecde23651e9f3fcdc6fa247a3))
+* **s3:** add full bucket object output ([3ebbaf0](https://github.com/kalabtech/aws-terraform-modules/commit/3ebbaf06233c9be1d5de7dab93cc087060b451e5))
+
 ## [1.2.0](https://github.com/kalabtech/aws-terraform-modules/compare/s3-v1.1.0...s3-v1.2.0) (2026-03-28)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/kalabtech/aws-terraform-modules/compare/s3-v1.3.0...s3-v1.4.0) (2026-03-30)
+
+
+### Features
+
+* **s3:** add enable_ssl bucket policy option ([3d104ab](https://github.com/kalabtech/aws-terraform-modules/commit/3d104abcaf94e5484e2b159bb9bd0391f23ed47d))
+
 ## [1.3.0](https://github.com/kalabtech/aws-terraform-modules/compare/s3-v1.2.0...s3-v1.3.0) (2026-03-29)
 
 

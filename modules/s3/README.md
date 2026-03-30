@@ -23,6 +23,7 @@ module "s3" {
 | bucket_name | S3 bucket name | `string` | - | yes |
 | kms_key_arn | KMS key ARN for bucket encryption. If not provided, AES256 is used | `string` | `null` | no |
 | enable_versioning | Enable bucket versioning. | `bool` | `true` | no |
+| enable_ssl | Enable bucket policy to enforce ssl. | `bool` | `true` | no |
 | noncurrent_version_expiration_days | Number of days to keep old object versions. | `number` | `0'` | no |
 | tags | Tags to apply to all resources | `map(string)` | `{}` | no |
 

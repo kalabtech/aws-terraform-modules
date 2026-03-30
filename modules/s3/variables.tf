@@ -30,3 +30,9 @@ variable "enable_versioning" {
   type        = bool
   default     = true
 }
+
+variable "enforce_ssl" {
+  description = "Enable bucket policy to enforce ssl"
+  type        = bool
+  default     = true
+}
